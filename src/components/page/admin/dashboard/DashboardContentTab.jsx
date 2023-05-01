@@ -2,15 +2,45 @@ import Upcoming from '../../../../assets/images/icons/cat-icon3.svg'
 import Processing from '../../../../assets/images/icons/processing.svg'
 import Completed from '../../../../assets/images/icons/completed.svg'
 import Apple from '../../../../assets/images/icons/apple.svg'
+import { Link } from 'react-router-dom'
 
-const DashboardContentTab = ({user}) => {
+const DashboardContentTab = ({ user }) => {
     return (
         <>
             <div className={`tab-pane fade ${user && user.roleUser === 'admin' && 'show active'}`} id="v-pills-dashboard"
-                 role="tabpanel"
-                 aria-labelledby="v-pills-dashboard-tab">
+                role="tabpanel"
+                aria-labelledby="v-pills-dashboard-tab">
                 <div className="dashboard-area box--shadow">
-                    <div className="row g-4">
+
+                    <div className="container-lg container-fluid">
+                        <div className="row d-flex justify-content align-items-end">
+
+                            <h1
+                                className="wow fadeInDown"
+                                data-wow-duration="1.5s"
+                                data-wow-delay="0.5s"
+
+                            >
+                                Welcome To Hajur Ko Car Rental
+                            </h1>
+                            <h2
+                                className="wow fadeInDown"
+                                data-wow-duration="1.5s"
+                                data-wow-delay="1s"
+                            >
+                                Ride like a star, with cars from HKCR!
+                            </h2>
+
+                            <img
+                                alt="bannerImage"
+                                src={'/images/bg/coll.png'}
+                                className="home3-banner img-fluid"
+                            />
+
+                        </div>
+                    </div>
+
+                    {/* <div className="row g-4">
                         <div className="col-md-6 col-sm-6">
                             <div className="dashboard-card hover-border1 wow fadeInDown" data-wow-duration="1.5s"
                                  data-wow-delay=".2s">
@@ -81,7 +111,7 @@ const DashboardContentTab = ({user}) => {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </>

@@ -133,7 +133,7 @@ const DashboardMenu = ({user}) => {
                                 aria-selected="true"
                             >
                                 <GiCarpetBombing size={28}/>
-                                Add Product
+                                Add Cars
                             </button>
                             <button
                                 className="nav-link nav-btn-style mx-auto mb-20"

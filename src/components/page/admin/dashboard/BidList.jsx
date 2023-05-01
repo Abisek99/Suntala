@@ -98,7 +98,7 @@ function BidList() {
 								<tr>
 									<th>SN</th>
 									<th>Bidder Name</th>
-									<th>Product Name</th>
+									<th>Car Name</th>
 									<th>Bid Amount</th>
 									<th>Bid Time</th>
 									<th>Action</th>
@@ -111,7 +111,7 @@ function BidList() {
 											<tr key={id}>
 												<td data-label="SN">{id + 1}</td>
 												<td data-label="Bidder Name">{product.bidder.name}</td>
-												<td data-label="Product Name">
+												<td data-label="Car Name">
 													{product.product.name}
 												</td>
 												<td data-label="Bid Amount">{product.bidAmount}</td>
