@@ -30,18 +30,19 @@ const DashboardWrap = () => {
             const newUser = localStorage.getItem('userInfo')
             if (newUser) {
                 const uu = JSON.parse(newUser)
-                console.log('🚀 ~ file: DashboardMenu.jsx:28 ~ useEffect ~ uu:', uu)
                 setUser(uu)
-                console.log('🚀 ~ file: DashboardMenu.jsx:30 ~ useEffect ~ user:', user)
             }
         } catch (e) {
             console.error(e)
         }
         const userName = id.id
-        fetchOneUser(userName)
+        fetchUser(userName)
         setLoading(false)
     }, [])
 
+    const fetchUser = async (username) => {
+        await fetchOneUser(username)
+    }
     const fetchOneUser = async (userName) => {
         await axios
             .get(`${url.proxy_api}auth/getSingleUser?username=${userName}`)
@@ -49,7 +50,7 @@ const DashboardWrap = () => {
                 const tempUser = res.data
                 setUser(tempUser)
                 setApiUser(tempUser)
-                console.log('🚀 ~ file: DashboardMenu.jsx:36 ~ then ~ user:', apiUser)
+                console.log('🚀 ~ file: DashboardMenu:36 ~ then ~ APIUSER :', apiUser)
             })
             .catch((err) => {
                 console.log(err.response)
