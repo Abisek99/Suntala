@@ -94,6 +94,18 @@ export default {
 					console.error(err)
 				})
 		},
+		getOneUser: async (name) => {
+			return axios({
+				method: 'GET',
+				url: url.proxy_api + 'auth/getSingleUser?username=' + name,
+			})
+				.then((res) => {
+					res.data
+				})
+				.catch((err) => {
+					console.error(err)
+				})
+		},
 		joinMerchant: async () => {
 			return axios({
 				method: 'PATCH',

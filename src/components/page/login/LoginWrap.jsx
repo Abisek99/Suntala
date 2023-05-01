@@ -38,11 +38,14 @@ function LoginWrap() {
 		}
 
 		await api.auth.loginUser(loginUser).then((res) => {
-			console.log(res.message)
+			console.log('🚀 ~ file: LoginWrap.jsx:41 ~ loginUser ~ res:', res)
 			if (res.status !== 'Error') {
 				setEmail('')
 				setPassword('')
 				localStorage.setItem('userToken', JSON.stringify(res.token))
+				localStorage.setItem('userInfo', JSON.stringify(res))
+				sessionStorage.setItem('userToken', JSON.stringify(res.token))
+				sessionStorage.setItem('userInfo', JSON.stringify(res))
 
 				toast.success(`Log In Successfully`)
 				showAlert({
@@ -50,7 +53,7 @@ function LoginWrap() {
 					type: 'success',
 				})
 				setTimeout(() => {
-					navigate('/dashboard')
+					navigate(`/dashboard/${res.userName}`)
 				}, 1800)
 				setLoading(false)
 			} else {

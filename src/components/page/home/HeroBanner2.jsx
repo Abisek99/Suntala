@@ -7,8 +7,8 @@ function HeroBanner2() {
 		try {
 			const newUser = localStorage.getItem('userInfo')
 			if (newUser) {
-				console.log(newUser)
 				const uu = JSON.parse(newUser)
+				console.log(uu)
 				setUser(uu.user)
 			}
 		} catch (e) {
@@ -19,8 +19,6 @@ function HeroBanner2() {
 	return (
 		<>
 			<div className="hero-area hero-style-three">
-				
-
 				{/* <img
 					alt="bannerImage"
 					src={'/images/bg/np.png'}
@@ -54,7 +52,16 @@ function HeroBanner2() {
 									data-wow-duration="1.5s"
 									data-wow-delay="1s"
 								>
-									Hajur ko car rental is a reliable car rental service that provides customers with an affordable and convenient way to rent a car. Whether you need a car for a weekend getaway, a business trip, or just to get around town, Hajur ko car rental has a variety of vehicles to choose from. Their fleet includes sedans, SUVs, and luxury cars, all of which are well-maintained and equipped with the latest features. With competitive prices and excellent customer service, Hajur ko car rental is a top choice for anyone in need of a rental car. &hearts;
+									Hajur ko car rental is a reliable car rental service that
+									provides customers with an affordable and convenient way to
+									rent a car. Whether you need a car for a weekend getaway, a
+									business trip, or just to get around town, Hajur ko car rental
+									has a variety of vehicles to choose from. Their fleet includes
+									sedans, SUVs, and luxury cars, all of which are
+									well-maintained and equipped with the latest features. With
+									competitive prices and excellent customer service, Hajur ko
+									car rental is a top choice for anyone in need of a rental car.
+									&hearts;
 								</p>
 								<Link
 									to={`/products`}

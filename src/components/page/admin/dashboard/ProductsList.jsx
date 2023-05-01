@@ -151,9 +151,8 @@ function ProductsList() {
 					)}
 				</div>
 				{/* pagination area */}
-				<div className="table-pagination">
+				{/* <div className="table-pagination">
 					<p>
-						{/* Showing 1 to {products.length} of {products.length} entries */}
 					</p>
 					<nav className="pagination-wrap">
 						<ul className="pagination style-two d-flex justify-content-center gap-md-3 gap-2">
@@ -184,7 +183,7 @@ function ProductsList() {
 							</li>
 						</ul>
 					</nav>
-				</div>
+				</div> */}
 			</div>
 		</>
 	)

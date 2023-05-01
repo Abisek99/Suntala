@@ -33,7 +33,7 @@ function App() {
 						element={<AuctionDetailsWrap />}
 					/>
 
-					<Route path="dashboard" element={<Dashboard />} />
+					<Route path="dashboard/:id" element={<Dashboard />} />
 					<Route path="live-auction" element={<LiveAuctionPage />} />
 					<Route path="join-merchant" element={<JoinMerchant />} />
 					{/* <Route path="how-works" element={<HowItWork/>}/> */}
