@@ -34,11 +34,11 @@ function BidList() {
 			})
 			.catch((err) => {
 				console.log(err.response.data)
-				toast.warning('Could Not Fetch Users')
-				showAlert({
-					text: `Could Not Fetch Users`,
-					type: 'danger',
-				})
+				// toast.warning('Could Not Fetch Users')
+				// showAlert({
+				// 	text: `Could Not Fetch Users`,
+				// 	type: 'danger',
+				// })
 				setTimeout(() => {
 					hideAlert()
 				}, 1600)

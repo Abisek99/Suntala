@@ -28,6 +28,7 @@ const AddProduct = () => {
 	const [liveOn, setLiveOn] = useState('')
 	const [showLink, setShowLink] = useState(false)
 	const [prodId, setProdId] = useState('')
+	const [user, setUser] = useState({})
 
 	const active = 'show active'
 
@@ -66,14 +67,6 @@ const AddProduct = () => {
 				data
 			)
 			setImage(data.secure_url)
-			// await cloudinary.uploader
-			// 	.upload(formData)
-			// 	.then((response) => {
-			// 		console.log(response)
-			// 	})
-			// 	.catch((error) => {
-			// 		console.error(error)
-			// 	})
 		}
 	}
 
@@ -108,8 +101,14 @@ const AddProduct = () => {
 				setPrice('')
 				setImage('')
 				setLiveOn('')
-				setCategory('traditional')
+				setCategory('')
 				setDesc('')
+				setBrand('')
+				setNoOfRent(0)
+				setTimeout(() => {
+					hideAlert()
+					window.location.reload()
+				}, 1200)
 			})
 		} catch (error) {
 			console.log(error)
@@ -126,7 +125,7 @@ const AddProduct = () => {
 				<div className="dashboard-profile">
 					<div className="owner">
 						<div className="content">
-							<h3>Add Product: {productName}</h3>
+							<h3>Add Car: {productName}</h3>
 						</div>
 					</div>
 					{alert.show && (
