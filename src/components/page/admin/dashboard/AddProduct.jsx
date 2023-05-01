@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { CloudinaryContext, Image, Transformation } from 'cloudinary-react'
 import cloudinary from 'cloudinary-core'
 
@@ -25,10 +25,7 @@ const AddProduct = () => {
 	const [desc, setDesc] = useState('')
 	const [image, setImage] = useState(null)
 	const [category, setCategory] = useState('')
-	const [liveOn, setLiveOn] = useState('')
-	const [showLink, setShowLink] = useState(false)
-	const [prodId, setProdId] = useState('')
-	const [user, setUser] = useState({})
+
 
 	const active = 'show active'
 
@@ -72,7 +69,6 @@ const AddProduct = () => {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault()
-		setShowLink(false)
 		try {
 			const product = {
 				carName: productName,
@@ -87,9 +83,6 @@ const AddProduct = () => {
 			}
 			await axios.post(`${url.proxy_api}cars/add`, product).then((res) => {
 				console.log(res.data)
-				// const pID = res.data.product
-				// setProdId(pID)
-				// setShowLink(true)
 				hideAlert()
 				toast.success('Car Added Successfully')
 				showAlert({
@@ -100,7 +93,6 @@ const AddProduct = () => {
 				setProductName('')
 				setPrice('')
 				setImage('')
-				setLiveOn('')
 				setCategory('')
 				setDesc('')
 				setBrand('')

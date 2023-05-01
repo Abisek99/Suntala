@@ -44,7 +44,8 @@ export default {
                     username: data.username,
                     email: data.email,
                     password: data.password,
-                    phoneNumber: data.phone
+                    phoneNumber: data.phone,
+                    docId:data.imageId
                 },
             })
                 .then((res) => res.data)
