@@ -149,10 +149,10 @@ const AddProduct = () => {
 							<div className="row">
 								<div className="col-xl-12 col-lg-12 col-md-6">
 									<div className="form-inner">
-										<label>Product Name *</label>
+										<label>Car Name *</label>
 										<input
 											type="text"
-											placeholder="Product name"
+											placeholder="Car name"
 											value={productName}
 											onChange={(e) => setProductName(e.target.value)}
 										/>
@@ -239,7 +239,7 @@ const AddProduct = () => {
 									<div className="col-xl-6 col-lg-12 col-md-6">
 										<div className="form-inner ">
 											<label style={{ display: 'inline' }}>Owner{' : '}</label>
-											<h5 style={{ display: 'inline', color: '#327c7d' }}>
+											<h5 style={{ lay: 'inline', color: '#327c7d' }}>
 												"user.name"
 											</h5>
 										</div>
@@ -249,7 +249,7 @@ const AddProduct = () => {
 								<div className="col-12">
 									<div className="button-group">
 										<button type="submit" className="eg-btn profile-btn">
-											Add Product
+											Add Cars
 										</button>
 										<button
 											className="eg-btn cancel-btn"

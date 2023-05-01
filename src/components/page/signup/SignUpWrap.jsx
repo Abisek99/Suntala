@@ -166,7 +166,7 @@ function SignUpWrap() {
                                         </div>
                                         <div className="col-md-12">
                                             <div className="form-inner">
-                                                <label htmlFor={'phone'}>Password *</label>
+                                                <label htmlFor={'phone'}>Phone Number *</label>
                                                 <input
                                                     type='text'
                                                     name="phone"
@@ -198,8 +198,7 @@ function SignUpWrap() {
                                 <div className="form-poicy-area">
                                     <p>
                                         By clicking the "Create Account" button, you create a
-                                        Premiere Auctioneers account, and you agree to Premiere
-                                        Auctioneers's <Link to={'#'}>Terms &amp; Conditions</Link>{' '}
+                                        Hajur Ko Car Rental account, and you agree to Hajur Ko Car Rental's <Link to={'#'}>Terms &amp; Conditions</Link>{' '}
                                         &amp; <Link to={'#'}>Privacy Policy.</Link>
                                     </p>
                                 </div>

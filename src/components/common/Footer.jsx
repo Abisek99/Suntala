@@ -83,11 +83,7 @@ function Footer() {
                                                 Security Information
                                             </Link>
                                         </li>
-                                        <li>
-                                            <Link to={`#`} onClick={scrollTop}>
-                                                Merchant Add Policy
-                                            </Link>
-                                        </li>
+
                                     </ul>
                                 </div>
                             </div>
