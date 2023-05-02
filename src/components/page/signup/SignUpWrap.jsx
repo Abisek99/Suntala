@@ -101,6 +101,10 @@ function SignUpWrap() {
 
 	const handleSignUp = async (e) => {
 		e.preventDefault()
+		if (name === '' || username === '' || email === '' || password === '' || phone === '' || imageId === ''){
+            toast.error("Fill in all Fields")
+            return
+        }
 		hideAlert()
 		setLoading(true)
 		const signUpUser = { name, username, email, password, phone, imageId }

@@ -6,6 +6,8 @@ import useLocalState from '../../../utils/LocalState'
 import {toast} from "react-toastify";
 import axios from "axios";
 import url from "../../../common/url";
+import {BsHeartbreak} from "react-icons/bs"
+import {FaCheck} from "react-icons/fa"
 
 function BidList({user}) {
     const [products, setProducts] = useState([])
@@ -131,13 +133,19 @@ function BidList({user}) {
                                                         className="btn btn-outline-success btn-sm"
                                                         onClick={() => handleDelete(product)}
                                                     >
-                                                        Approve
+                                                        <FaCheck size={16}/>Approve
                                                     </button>
+                                                    <span
+														style={{
+															borderLeft: 'solid 1px #aaa',
+															marginRight: '10px',
+														}}
+													></span>
                                                     <button
-                                                        className="btn btn-outline-dark btn-sm"
+                                                        className="btn btn-outline-danger btn-sm"
                                                         // onClick={() => handleDelete(product)}
                                                     >
-                                                        <i className="bi bi-heartbreak text-danger"></i> Approve
+                                                        <BsHeartbreak size={16}/> Damage
                                                     </button>
                                                 </td>
                                             </tr>

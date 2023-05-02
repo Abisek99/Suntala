@@ -68,6 +68,10 @@ const AddProduct = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
+        if (productName === '' || brand === '' || available === '' || noOfRent === '' || price === '' || image === '' || desc ==='' || category ===''){
+            toast.error("Fill in all Fields")
+            return
+        }
         try {
             const product = {
                 carName: productName,
