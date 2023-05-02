@@ -77,7 +77,7 @@ function ProductsList({user}) {
             aria-labelledby="v-pills-order-tab"
         >
             <div className="table-title-area">
-                <h3>All Products</h3>
+                <h3>All Cars</h3>
                 {alert.show && (<div
                     className={`alert alert-${alert.type} text-center`}
                     style={{
