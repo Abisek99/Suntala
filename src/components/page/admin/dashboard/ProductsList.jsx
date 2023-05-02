@@ -5,8 +5,11 @@ import {FiTrash} from 'react-icons/fi'
 import {toast} from 'react-toastify'
 
 function ProductsList({user}) {
+    const [apiUser, setApiUser] = useState(JSON.parse(localStorage.getItem('userInfo')))
     const [products, setProducts] = useState([])
     const {alert, showAlert, loading, setLoading, hideAlert} = useLocalState()
+
+
     useEffect(() => {
         setLoading(true)
         getAllProducts()
@@ -25,8 +28,7 @@ function ProductsList({user}) {
                 console.log(err.response.data)
                 toast.error('Could Not Fetch Products')
                 showAlert({
-                    text: `Could Not Fetch Products`,
-                    type: 'danger',
+                    text: `Could Not Fetch Products`, type: 'danger',
                 })
                 setTimeout(() => {
                     hideAlert()
@@ -40,8 +42,7 @@ function ProductsList({user}) {
             console.log(res)
             toast.danger(`Deleted Product ${product.carName}`)
             showAlert({
-                text: `Deleted Product ${product.carName}`,
-                type: 'danger',
+                text: `Deleted Product ${product.carName}`, type: 'danger',
             })
         })
         getAllProducts()
@@ -68,53 +69,45 @@ function ProductsList({user}) {
         return formattedDate
     }
 
-    return (
-        <>
-            <div
-                className={`tab-pane fade ${user && user.roleUser === 'staff' && 'show active'}`}
-                id="v-pills-order"
-                role="tabpanel"
-                aria-labelledby="v-pills-order-tab"
-            >
-                <div className="table-title-area">
-                    <h3>All Products</h3>
-                    {alert.show && (
-                        <div
-                            className={`alert alert-${alert.type} text-center`}
-                            style={{
-                                fontFamily: 'Saira',
-                                textTransform: 'capitalize',
-                            }}
-                        >
-                            {alert.text}
-                        </div>
-                    )}
-                </div>
-                <div className="table-wrapper">
-                    {loading ? (
-                        <div className={'text-center'}>Loading...</div>
-                    ) : (
-                        <table className="eg-table order-table table mb-0">
-                            <thead>
-                            <tr>
-                                <th>SN</th>
-                                {/* <th>Image</th> */}
-                                <th>Car Name</th>
-                                <th>Car Brand</th>
-                                <th>Rental Price</th>
-                                <th>No of Rents</th>
-                                <th>Last Rented On</th>
-                                <th>Status</th>
-                                <th>Action</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            {products &&
-                                products.map((product, id) => {
-                                    return (
-                                        <tr key={id}>
-                                            <td data-label="SN">{id + 1}</td>
-                                            {/* <td data-label="Image">
+    return (<>
+        <div
+            className={`tab-pane fade ${user && user.roleUser === 'staff' && 'show active'}`}
+            id="v-pills-order"
+            role="tabpanel"
+            aria-labelledby="v-pills-order-tab"
+        >
+            <div className="table-title-area">
+                <h3>All Products</h3>
+                {alert.show && (<div
+                    className={`alert alert-${alert.type} text-center`}
+                    style={{
+                        fontFamily: 'Saira', textTransform: 'capitalize',
+                    }}
+                >
+                    {alert.text}
+                </div>)}
+            </div>
+            <div className="table-wrapper">
+                {loading ? (<div className={'text-center'}>Loading...</div>) : (
+                    <table className="eg-table order-table table mb-0">
+                        <thead>
+                        <tr>
+                            <th>SN</th>
+                            {/* <th>Image</th> */}
+                            <th>Car Name</th>
+                            <th>Car Brand</th>
+                            <th>Rental Price</th>
+                            <th>No of Rents</th>
+                            <th>Last Rented On</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {products && products.map((product, id) => {
+                            return (<tr key={id}>
+                                <td data-label="SN">{id + 1}</td>
+                                {/* <td data-label="Image">
 													<img
 														alt={product.name}
 														// src={product.image}
@@ -122,35 +115,33 @@ function ProductsList({user}) {
 														className="img-fluid boxy-image"
 													/>
 												</td> */}
-                                            <td data-label="Car Name">{product.carName}</td>
-                                            <td data-label="Car Brand">{product.carBrand}</td>
-                                            <td data-label="Rental Price">
-                                                रु {product.carRentalRate}
-                                            </td>
-                                            <td data-label="Number of Rents">
-                                                {product.carNoOfRent}
-                                            </td>
-                                            <td data-label="Last Rented">
-                                                {formatDate(product.carLastRented)}
-                                            </td>
-                                            <td data-label="Status">{product.carAvailability}</td>
-                                            <td data-label="Action">
-                                                <button
-                                                    className="btn btn-outline-danger btn-sm"
-                                                    onClick={() => handleDelete(product)}
-                                                >
-                                                    <FiTrash size={16}/>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                    )
-                                })}
-                            </tbody>
-                        </table>
-                    )}
-                </div>
-                {/* pagination area */}
-                {/* <div className="table-pagination">
+                                <td data-label="Car Name">{product.carName}</td>
+                                <td data-label="Car Brand">{product.carBrand}</td>
+                                <td data-label="Rental Price">
+                                    रु {product.carRentalRate}
+                                </td>
+                                <td data-label="Number of Rents">
+                                    {product.carNoOfRent}
+                                </td>
+                                <td data-label="Last Rented">
+                                    {formatDate(product.carLastRented)}
+                                </td>
+                                <td data-label="Status">{product.carAvailability}</td>
+                                <td data-label="Action">
+                                    <button
+                                        className="btn btn-outline-danger btn-sm"
+                                        onClick={() => handleDelete(product)}
+                                    >
+                                        <FiTrash size={16}/>
+                                    </button>
+                                </td>
+                            </tr>)
+                        })}
+                        </tbody>
+                    </table>)}
+            </div>
+            {/* pagination area */}
+            {/* <div className="table-pagination">
 					<p>
 					</p>
 					<nav className="pagination-wrap">
@@ -183,9 +174,8 @@ function ProductsList({user}) {
 						</ul>
 					</nav>
 				</div> */}
-            </div>
-        </>
-    )
+        </div>
+    </>)
 }
 
 export default ProductsList

@@ -45,7 +45,7 @@ export default {
                     email: data.email,
                     password: data.password,
                     phoneNumber: data.phone,
-                    docId:data.imageId
+                    docId: data.imageId
                 },
             })
                 .then((res) => res.data)
@@ -177,4 +177,28 @@ export default {
             })
         },
     },
+    rent: {
+        addNew: async (data) => {
+            return axios({
+                method: 'POST',
+                url: url.proxy_api + 'rental',
+                data: {
+                    carID: data.productId,
+                    userID: data.userId
+                },
+            });
+        },
+        getAllRentRequests: async () => {
+            return axios({
+                method: 'GET',
+                url: url.proxy_api + 'rental'
+            })
+        },
+        getUserRentRequests: async (user) => {
+            return axios({
+                method: 'GET',
+                url: url.proxy_api + 'rental/' + user
+            })
+        }
+    }
 }

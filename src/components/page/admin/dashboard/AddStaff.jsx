@@ -31,7 +31,8 @@ const AddStaff = () => {
                 password: staffPassword,
                 phoneNumber: staffPhone,
                 roleUser: "staff",
-                isStaff:true
+                isStaff: true,
+                docId: "eba90be5-afe4-4f2b-8b85-dbbf935ee90d"
             }
             await axios.post(`${url.proxy_api}auth/register`, staff).then((res) => {
                 console.log(res.data)

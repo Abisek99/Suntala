@@ -7,7 +7,7 @@ import {toast} from "react-toastify";
 import axios from "axios";
 import url from "../../../common/url";
 
-function BidList({user}) {
+function DamageRequest({user}) {
     const [products, setProducts] = useState([])
     const {alert, showAlert, loading, setLoading, hideAlert} = useLocalState()
 
@@ -78,12 +78,12 @@ function BidList({user}) {
         <>
             <div
                 className="tab-pane fade"
-                id="v-pills-purchase"
+                id="v-pills-damages"
                 role="tabpanel"
-                aria-labelledby="v-pills-purchase-tab"
+                aria-labelledby="v-pills-damages"
             >
                 <div className="table-title-area">
-                    <h3>All Rentals</h3>
+                    <h3>All Damages</h3>
                     {alert.show && (
                         <div
                             className={`alert alert-${alert.type} text-center`}
@@ -103,9 +103,9 @@ function BidList({user}) {
                         <tr>
                             <th>SN</th>
                             <th>Car Name</th>
-                            <th>Car Rate</th>
                             <th>Rental User</th>
                             <th>Request Date</th>
+                            <th>Damage Amount</th>
                             <th>Status</th>
                             <th>Action</th>
                         </tr>
@@ -121,9 +121,9 @@ function BidList({user}) {
                                                 <td data-label="SN">{id + 1}</td>
 
                                                 <td data-label="Car Name">{product.carName}</td>
-                                                <td data-label="Car Rate"> रु {product.carRate}</td>
                                                 <td data-label="Rental User">{product.userName}</td>
                                                 <td data-label="Request Date">{formatDate(product.rentalRequestDate)}</td>
+                                                <td data-label="Car Rate"> रु {product.carRate}</td>
                                                 <td data-label="Status">{product.rentalStatus}</td>
 
                                                 <td data-label="Action">
@@ -132,12 +132,6 @@ function BidList({user}) {
                                                         onClick={() => handleDelete(product)}
                                                     >
                                                         Approve
-                                                    </button>
-                                                    <button
-                                                        className="btn btn-outline-dark btn-sm"
-                                                        // onClick={() => handleDelete(product)}
-                                                    >
-                                                        <i className="bi bi-heartbreak text-danger"></i> Approve
                                                     </button>
                                                 </td>
                                             </tr>
@@ -189,4 +183,4 @@ function BidList({user}) {
     )
 }
 
-export default BidList
+export default DamageRequest
