@@ -19,7 +19,8 @@ function DamageRequest({user}) {
         await axios.get(`https://localhost:7179/api/v1/damageRequests`)
             .then((res) => {
                 console.log(res)
-                const tempProducts = res
+                console.log(res.data)
+                const tempProducts = res.data
                 setProducts(tempProducts)
                 setLoading(false)
 
@@ -103,11 +104,11 @@ function DamageRequest({user}) {
                         <tr>
                             <th>SN</th>
                             <th>Car Name</th>
-                            <th>Rental User</th>
-                            <th>Request Date</th>
-                            <th>Damage Amount</th>
+                            <th>Damaged By</th>
+                            <th>Received By</th>
                             <th>Status</th>
-                            <th>Action</th>
+                            <th>Date Damaged</th>
+                            <th>Damage Cost</th>
                         </tr>
                         </thead>
                         {loading ? (
@@ -121,19 +122,11 @@ function DamageRequest({user}) {
                                                 <td data-label="SN">{id + 1}</td>
 
                                                 <td data-label="Car Name">{product.carName}</td>
-                                                <td data-label="Rental User">{product.userName}</td>
-                                                <td data-label="Request Date">{formatDate(product.rentalRequestDate)}</td>
-                                                <td data-label="Car Rate"> रु {product.carRate}</td>
-                                                <td data-label="Status">{product.rentalStatus}</td>
-
-                                                <td data-label="Action">
-                                                    <button
-                                                        className="btn btn-outline-success btn-sm"
-                                                        onClick={() => handleDelete(product)}
-                                                    >
-                                                        Approve
-                                                    </button>
-                                                </td>
+                                                <td data-label="Rental User">{product.damagedBy}</td>
+                                                <td data-label="Rental User">{product.acceptedBy}</td>
+                                                <td data-label="Status">{product.damageStatus}</td>
+                                                <td data-label="Request Date">{formatDate(product.damageDate)}</td>
+                                                <td data-label="Car Rate"> रु {product.repairBill}</td>
                                             </tr>
                                         )
                                     })}

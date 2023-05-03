@@ -102,7 +102,6 @@ const AddProduct = () => {
                 setNoOfRent(0)
                 setTimeout(() => {
                     hideAlert()
-                    window.location.reload()
                 }, 1200)
             })
         } catch (error) {

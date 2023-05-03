@@ -183,11 +183,11 @@ function BidList({user}) {
                                             <tr key={id}>
                                                 <td data-label="SN">{id + 1}</td>
 
-                                                <td data-label="Car Name">{product.carName}</td>
-                                                <td data-label="Car Rate"> रु {product.carRate}</td>
-                                                <td data-label="Rental User">{product.userName}</td>
-                                                <td data-label="Request Date">{formatDate(product.rentalRequestDate)}</td>
-                                                <td data-label="Status">{product.rentalStatus}</td>
+                                                <td style={{fontSize:"15px"}} data-label="Car Name">{product.carName}</td>
+                                                <td style={{fontSize:"15px"}} data-label="Car Rate"> रु {product.carRate}</td>
+                                                <td style={{fontSize:"15px"}} data-label="Rental User">{product.userName}</td>
+                                                <td style={{fontSize:"15px"}} data-label="Request Date">{formatDate(product.rentalRequestDate)}</td>
+                                                <td style={{fontSize:"15px"}} data-label="Status">{product.rentalStatus}</td>
 
                                                 <td data-label="Action">
                                                     <button
