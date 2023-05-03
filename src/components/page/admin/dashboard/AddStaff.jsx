@@ -44,11 +44,11 @@ const AddStaff = () => {
                 })
                 setStaffName('')
                 setStaffEmail('')
+                setUsername('')
                 setStaffPhone('')
                 setStaffPassword('')
                 setTimeout(() => {
                     hideAlert()
-                    window.location.reload()
                 }, 1200)
             })
         } catch (error) {

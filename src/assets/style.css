@@ -6892,3 +6892,6 @@ input[type='text']:-ms-input-placeholder {
     color: #fff;
     border: 1px solid rgba(0, 0, 0, 0.96);
 }
+input {
+    font-family: "Saira";
+}

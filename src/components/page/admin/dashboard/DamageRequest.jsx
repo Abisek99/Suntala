@@ -1,7 +1,5 @@
 import React, {useEffect, useState} from 'react'
 import {Link} from 'react-router-dom'
-
-import api from '../../../common/api'
 import useLocalState from '../../../utils/LocalState'
 import {toast} from "react-toastify";
 import axios from "axios";
@@ -17,18 +15,20 @@ function DamageRequest({user}) {
     }, [])
 
     const getAllProducts = async () => {
-        await api.rent.getAllRentRequests()
+        // await axios.get(`${zebra.base_directory}damageRequests}`)
+        await axios.get(`https://localhost:7179/api/v1/damageRequests`)
             .then((res) => {
-                console.log(res.data)
-                const tempProducts = res.data
+                console.log(res)
+                const tempProducts = res
                 setProducts(tempProducts)
                 setLoading(false)
+
             })
             .catch((err) => {
-                console.log(err.response.data)
-                toast.error('Could Not Fetch Rental Details')
+                console.log(err)
+                toast.error('Could Not Fetch Damages')
                 showAlert({
-                    text: `Could Not Fetch Rentals`,
+                    text: `Could Not Fetch Damages`,
                     type: 'danger',
                 })
                 setTimeout(() => {
